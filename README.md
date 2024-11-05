@@ -12,9 +12,9 @@
 - [LinkedIn](https://www.linkedin.com/in/rafmco/)
 
 
-## 💡LOGIN com NEXTJS e NEXT-AUTH
+## 💡Push Notifications with Firebase Cloud Messaging
 
-Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente);
+Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente); Dispara notificações através do Firebase Cloud Messaging;
 
 ## 🛠️ Construído com:
 
@@ -29,8 +29,8 @@ Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido co
 
 ## 🚀 Instalação
 
-1. Baixe o repositório (`git clone git@github.com:Rafmco/login-nextjs.git`)
-2. Navegue até a pasta do projeto (`cd login-nextjs`)
+1. Baixe o repositório (`git clone git@github.com:Rafmco/fcm-nextjs.git`)
+2. Navegue até a pasta do projeto (`cd fcm-nextjs`)
 3. Instalar dependências `npm install`
 4. Copie .env.example e altere os valores das variáveis de ambiente
 5. `npm run dev`
@@ -44,7 +44,7 @@ Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido co
 
 ## 🚶‍♂️ Etapas
 - Criar Projeto
-  - `npx create-next-app@latest login-nextjs`
+  - `npx create-next-app@latest fcm-nextjs`
 - Instalar Next-Auth
   - `npm install next-auth`
 - Add Auth Route Handler
