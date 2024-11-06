@@ -6,17 +6,60 @@ import { Card, CardContent } from "./_components/ui/card";
 import { Separator } from "./_components/ui/separator";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import useFcmToken from "@/hooks/useFcmToken";
 
 export default function Home() {
   const { data } = useSession();
+
+  const { token, notificationPermissionStatus } = useFcmToken();
+
+  const handleTestNotification = async () => {
+    const response = await fetch("/send-notification", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+        title: "Test Notification",
+        message: "This is a test notification",
+        link: "/contact",
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <>
       {data?.user ? (
         // Welcome Page
-        <div className="flex flex-row items-start p-6 bg-white rounded-lg font-bold text-lg text-black">
-          Olá {data?.user?.name}!
-        </div>
+        <main className="p-10">
+          <div className="flex flex-row items-start p-6 bg-white rounded-lg font-bold text-lg text-black">
+            Olá {data?.user?.name}!
+          </div>
+
+          <h1 className="text-4xl mb-4 font-bold text-black">
+            Firebase Cloud Messaging Demo
+          </h1>
+          {notificationPermissionStatus === "granted" ? (
+            <p>Permission to receive notifications has been granted.</p>
+          ) : notificationPermissionStatus !== null ? (
+            <p className="text-black">
+              You have not granted permission to receive notifications. Please
+              enable notifications in your browser settings.
+            </p>
+          ) : null}
+
+          <Button
+            disabled={!token}
+            className="mt-5"
+            onClick={handleTestNotification}
+          >
+            Send Test Notification
+          </Button>
+        </main>
       ) : (
         // Landing Page
         <div className="flex flex-col items-center">
