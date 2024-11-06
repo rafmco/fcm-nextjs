@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "./_components/header";
 import AuthProvider from "./_providers/auth";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header />
           <main className="flex justify-center items-start p-6 min-h-screen bg-white">
+            <Toaster />
             {children}
           </main>
         </AuthProvider>
