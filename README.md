@@ -36,46 +36,20 @@ Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido co
 5. `npm run dev`
 6. Abrir `http://localhost:3000`
 
-
 ## 💻 Requisitos
 - Windows
   - Node.js
 
+## 🛠️ Desenvolvimento
 
-## 🚶‍♂️ Etapas
-- Criar Projeto
-  - `npx create-next-app@latest fcm-nextjs`
-- Instalar Next-Auth
-  - `npm install next-auth`
-- Add Auth Route Handler
-  - `./app/api/auth/[...nextauth]/route.ts`
-- Add Next Auth Providers (Options)
-  - `./app/api/auth/[...nextauth]/options.ts`
-  - Add to .env.local
-    - `NEXTAUTH_SECRET=""`
-- Generate Random Secret
-  - `openssl rand -base64 32`
-- Configurar OAUTH (Google, GitHub, etc)
-  - Add to .env.local
-    - `?_CLIENT_ID=""`
-    - `?_CLIENT_SECRET=""`
-- Configurar Providers
-  - `app\api\auth\[...nextauth]\options.ts`
-- Visualizar os providers por GET Request
-  - `http://localhost:3000/api/auth/providers`
-- Adicionar middleware para "proteger" com Next-Auth todo o projeto ou rotas específicas
-  - `.\middleware.ts`
-- Client Components (rotas autenticadas, não autenticadas)
-- Login Component
-
+Para seguir o passo a passo do desenvolvimento deste projeto, consulte o [Guia de Desenvolvimento](DEVELOPMENT_GUIDE.md).
 
 ## 📚 Referências
 
-- 🔗 [Next-Auth Login Authentication Tutorial with Next.js App Directory](https://youtu.be/w2h54xz6Ndw)
-- 🔗 [Build Secure Login & Signup with NextAuth.js (Next.js)](https://youtu.be/cWIQjKMhwj8)
-- 🔗 [NextAuth.js Official Site](https://next-auth.js.org/)
-- 🔗 [Next.js Official Site](https://nextjs.org/)
-
+- 🔗 [login-nextjs](https://github.com/rafmco/login-nextjs)
+- 🔗 [How to add Push Notifications to a Next.js App w/ Firebase Cloud Messaging!](https://www.youtube.com/watch?v=W-rlFj0d0RQ)
+- 🔗 [firebase-cloud-messaging-web-push-notifications-with-nextjs-14-tutorial](https://github.com/sonnysangha/firebase-cloud-messaging-web-push-notifications-with-nextjs-14-tutorial)
+- 🔗 [Firebase Cloud Messaging in React: A Comprehensive Guide](https://medium.com/simform-engineering/firebase-cloud-messaging-in-react-a-comprehensive-guide-b5e325452f97)
 
 ## © Licença
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.
