@@ -1,5 +1,5 @@
 <a name="readme-top"></a>
-  <h1 align="center">login-nextjs</h1>
+  <h1 align="center">fcm-nextjs</h1>
 <p align="center">
 </p>
 
@@ -12,9 +12,9 @@
 - [LinkedIn](https://www.linkedin.com/in/rafmco/)
 
 
-## 💡LOGIN com NEXTJS e NEXT-AUTH
+## 💡Push Notifications with Firebase Cloud Messaging
 
-Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente);
+Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente); Dispara notificações através do Firebase Cloud Messaging;
 
 ## 🛠️ Construído com:
 
@@ -29,53 +29,27 @@ Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido co
 
 ## 🚀 Instalação
 
-1. Baixe o repositório (`git clone git@github.com:Rafmco/login-nextjs.git`)
-2. Navegue até a pasta do projeto (`cd login-nextjs`)
+1. Baixe o repositório (`git clone git@github.com:Rafmco/fcm-nextjs.git`)
+2. Navegue até a pasta do projeto (`cd fcm-nextjs`)
 3. Instalar dependências `npm install`
 4. Copie .env.example e altere os valores das variáveis de ambiente
 5. `npm run dev`
 6. Abrir `http://localhost:3000`
 
-
 ## 💻 Requisitos
 - Windows
   - Node.js
 
+## 🛠️ Desenvolvimento
 
-## 🚶‍♂️ Etapas
-- Criar Projeto
-  - `npx create-next-app@latest login-nextjs`
-- Instalar Next-Auth
-  - `npm install next-auth`
-- Add Auth Route Handler
-  - `./app/api/auth/[...nextauth]/route.ts`
-- Add Next Auth Providers (Options)
-  - `./app/api/auth/[...nextauth]/options.ts`
-  - Add to .env.local
-    - `NEXTAUTH_SECRET=""`
-- Generate Random Secret
-  - `openssl rand -base64 32`
-- Configurar OAUTH (Google, GitHub, etc)
-  - Add to .env.local
-    - `?_CLIENT_ID=""`
-    - `?_CLIENT_SECRET=""`
-- Configurar Providers
-  - `app\api\auth\[...nextauth]\options.ts`
-- Visualizar os providers por GET Request
-  - `http://localhost:3000/api/auth/providers`
-- Adicionar middleware para "proteger" com Next-Auth todo o projeto ou rotas específicas
-  - `.\middleware.ts`
-- Client Components (rotas autenticadas, não autenticadas)
-- Login Component
-
+Para seguir o passo a passo do desenvolvimento deste projeto, consulte o [Guia de Desenvolvimento](DEVELOPMENT_GUIDE.md).
 
 ## 📚 Referências
 
-- 🔗 [Next-Auth Login Authentication Tutorial with Next.js App Directory](https://youtu.be/w2h54xz6Ndw)
-- 🔗 [Build Secure Login & Signup with NextAuth.js (Next.js)](https://youtu.be/cWIQjKMhwj8)
-- 🔗 [NextAuth.js Official Site](https://next-auth.js.org/)
-- 🔗 [Next.js Official Site](https://nextjs.org/)
-
+- 🔗 [login-nextjs](https://github.com/rafmco/login-nextjs)
+- 🔗 [How to add Push Notifications to a Next.js App w/ Firebase Cloud Messaging!](https://www.youtube.com/watch?v=W-rlFj0d0RQ)
+- 🔗 [firebase-cloud-messaging-web-push-notifications-with-nextjs-14-tutorial](https://github.com/sonnysangha/firebase-cloud-messaging-web-push-notifications-with-nextjs-14-tutorial)
+- 🔗 [Firebase Cloud Messaging in React: A Comprehensive Guide](https://medium.com/simform-engineering/firebase-cloud-messaging-in-react-a-comprehensive-guide-b5e325452f97)
 
 ## © Licença
 Distribuído sob a licença MIT. Veja `LICENSE.txt` para mais informações.
