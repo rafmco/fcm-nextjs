@@ -14,7 +14,7 @@
 
 ## 💡Push Notifications with Firebase Cloud Messaging
 
-Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente); Dispara notificações através do Firebase Cloud Messaging;
+Utiliza Next.js e Next-Auth para criar um app de Login autenticado, protegido com credenciais e com providers OAuth (Google e Github); A autenticação por 'Credencials' utiliza uma Custom API (definido nas variáveis de ambiente); Dispara Push Notificações através do Firebase Cloud Messaging e da Notification API do Navegador;
 
 ## 🛠️ Construído com:
 
