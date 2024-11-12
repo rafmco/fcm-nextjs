@@ -16,7 +16,7 @@ export default function Home() {
   );
 
   const handleTestNotification = async () => {
-    const response = await fetch("/send-notification", {
+    await fetch("/send-notification", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,9 +28,6 @@ export default function Home() {
         link: "/contact",
       }),
     });
-
-    const data = await response.json();
-    console.log(data);
   };
 
   return (

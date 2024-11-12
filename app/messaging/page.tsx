@@ -1,7 +1,6 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import useFcmToken from "@/hooks/useFcmToken";
 import { Button } from "../_components/ui/button";
 import { useState } from "react";
 
@@ -11,10 +10,10 @@ export default function MessagePage() {
   const [token, setToken] = useState("");
   const [title, setTitle] = useState("Teste Notificação");
   const [message, setMessage] = useState("Olá Mundo");
-  const [link, setLink] = useState("https://localhost:3000");
+  const [link, setLink] = useState("https://localhost:3000/messaging");
 
   const handleNotification = async () => {
-    const response = await fetch("/send-notification", {
+    await fetch("/send-notification", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,9 +25,6 @@ export default function MessagePage() {
         link: link,
       }),
     });
-
-    const data = await response.json();
-    console.log(data);
   };
 
   return (

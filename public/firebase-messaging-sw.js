@@ -19,22 +19,25 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log(
-    "[firebase-messaging-sw.js] Received background message ",
-    payload
-  );
+  if (payload.data && payload.data.title) {
+    console.log(
+      "[firebase-messaging-sw.js] Received background message ",
+      payload
+    );
 
-  // payload.fcmOptions?.link comes from our backend API route handle
-  // payload.data.link comes from the Firebase Console where link is the 'key'
-  const link = payload.fcmOptions?.link || payload.data?.link;
+    // payload.fcmOptions?.link comes from our backend API route handle
+    // payload.data.link comes from the Firebase Console where link is the 'key'
+    const link = payload.fcmOptions?.link || payload.data?.link;
 
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: "./logo.png",
-    data: { url: link },
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
+    const notificationTitle = payload.data.title;
+    const notificationOptions = {
+      body: payload.data.body,
+      icon: "./logo.png",
+      data: { url: link },
+    };
+
+    self.registration?.showNotification(notificationTitle, notificationOptions);
+  }
 });
 
 self.addEventListener("notificationclick", function (event) {

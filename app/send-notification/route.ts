@@ -15,9 +15,10 @@ export async function POST(request: NextRequest) {
 
   const payload: Message = {
     token,
-    notification: {
+    data: {
       title: title,
       body: message,
+      link: link,
     },
     webpush: link && {
       fcmOptions: {
