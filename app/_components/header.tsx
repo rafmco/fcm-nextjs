@@ -10,6 +10,7 @@ import {
   LogInIcon,
   LogOutIcon,
   MenuIcon,
+  MessageCircle,
   SquarePlusIcon,
   UserIcon,
 } from "lucide-react";
@@ -46,6 +47,11 @@ export default function Header() {
         <li>
           <Link href="/extra" title="Extra">
             <SquarePlusIcon size={30} />
+          </Link>
+        </li>
+        <li>
+          <Link href="/messaging" title="Message">
+            <MessageCircle size={30} />
           </Link>
         </li>
         <li>
