@@ -47,3 +47,5 @@
   - Create your first campaign
   - Enviar Mensagem de Teste
     - Colar Token de registro
+   
+- [Double Push Notifications](https://github.com/firebase/firebase-js-sdk/issues/6670) (v9.11): Getting two notifications on onBackgroundMessage
