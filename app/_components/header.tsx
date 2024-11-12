@@ -66,13 +66,13 @@ export default function Header() {
         <li>
           <Sheet>
             <SheetTrigger>
-              <Button
-                size="icon"
-                variant="outline"
-                className="border-none bg-transparent"
+              <div
+                role="button"
+                className="inline-flex items-center justify-center p-2 border-none bg-transparent cursor-pointer"
+                aria-label="Menu"
               >
                 <MenuIcon />
-              </Button>
+              </div>
             </SheetTrigger>
 
             <SheetContent>
