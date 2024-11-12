@@ -81,7 +81,7 @@ const useFcmToken = (login: string | null) => {
     setToken(token);
     isLoading.current = false;
 
-    // Call the API to store the token
+    // Step 8: Call the API to store the token
     if (login) {
       const params = {
         login: login,
@@ -111,7 +111,7 @@ const useFcmToken = (login: string | null) => {
   };
 
   useEffect(() => {
-    // Step 8: Initialize token loading when the component mounts.
+    // Step 9: Initialize token loading when the component mounts.
     if ("Notification" in window) {
       loadToken();
     }
@@ -125,7 +125,7 @@ const useFcmToken = (login: string | null) => {
       const m = await messaging();
       if (!m) return;
 
-      // Step 9: Register a listener for incoming FCM messages.
+      // Step 10: Register a listener for incoming FCM messages.
       const unsubscribe = onMessage(m, (payload) => {
         if (Notification.permission !== "granted") return;
 
@@ -133,46 +133,40 @@ const useFcmToken = (login: string | null) => {
         const link = payload.fcmOptions?.link || payload.data?.link;
 
         if (link) {
-          toast.info(
-            `${payload.notification?.title}: ${payload.notification?.body}`,
-            {
-              action: {
-                label: "Visit",
-                onClick: () => {
-                  const link = payload.fcmOptions?.link || payload.data?.link;
-                  if (link) {
-                    router.push(link);
-                  }
-                },
+          toast.info(`${payload.data?.title}: ${payload.data?.body}`, {
+            action: {
+              label: "Acessar",
+              onClick: () => {
+                const link = payload.fcmOptions?.link || payload.data?.link;
+                if (link) {
+                  router.push(link);
+                }
               },
-            }
-          );
-        } else {
-          toast.info(
-            `${payload.notification?.title}: ${payload.notification?.body}`
-          );
+            },
+          });
+        } else if (payload.data?.title) {
+          toast.info(`${payload.data?.title}: ${payload.data?.body}`);
         }
 
         // --------------------------------------------
-        // Disable this if you only want toast notifications.
-        const n = new Notification(
-          payload.notification?.title || "New message",
-          {
-            body: payload.notification?.body || "This is a new message",
+        if (payload.data?.title) {
+          // Disable this if you only want toast notifications.
+          const n = new Notification(payload.data?.title, {
+            body: payload.data?.body,
             data: link ? { url: link } : undefined,
-          }
-        );
+          });
 
-        // Step 10: Handle notification click event to navigate to a link if present.
-        n.onclick = (event) => {
-          event.preventDefault();
-          const link = (event.target as any)?.data?.url;
-          if (link) {
-            router.push(link);
-          } else {
-            console.log("No link found in the notification payload");
-          }
-        };
+          // Step 11: Handle notification click event to navigate to a link if present.
+          n.onclick = (event) => {
+            event.preventDefault();
+            const link = (event.target as any)?.data?.url;
+            if (link) {
+              router.push(link);
+            } else {
+              console.log("No link found in the notification payload");
+            }
+          };
+        }
         // --------------------------------------------
       });
 
@@ -187,7 +181,7 @@ const useFcmToken = (login: string | null) => {
       }
     });
 
-    // Step 11: Cleanup the listener when the component unmounts.
+    // Step 12: Cleanup the listener when the component unmounts.
     return () => unsubscribe?.();
   }, [token, router, toast]);
 
