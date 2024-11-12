@@ -5,6 +5,7 @@
 - Copiar Projeto Base [login-nextjs](https://github.com/rafmco/login-nextjs)
 
 - Criar conta [Firebase](https://firebase.google.com/)
+
   - Acesse o Console
     - Criar Projeto
     - Acessar 'Configurações do Projeto -> Geral'
@@ -24,16 +25,25 @@
         - `npm i firebase-admin`
       - Configurar Send Notification Route
         - '/app/send-notification/route.ts'
-     - Acessar 'Configurações do Projeto -> Cloud Messaging'
-       - Gerar KEY PAIR
-       - Adicionar ao .ENV
-         - NEXT_PUBLIC_FIREBASE_FCM_VAPID_KEY=???
+    - Acessar 'Configurações do Projeto -> Cloud Messaging'
+      - Gerar KEY PAIR
+      - Adicionar ao .ENV
+        - NEXT_PUBLIC_FIREBASE_FCM_VAPID_KEY=???
 
 - Para usar ServiceWorkers, altere a configuração de 'scripts' em 'package.json':
+
   - `"dev": "next dev --experimental-https",`
 
 - Instalação dos componentes Shadcn:
+
   - `npx shadcn-ui@latest add sonner`
- 
+
 - Configuração HookFCMToken
+
   - '/hooks/useFcmToken.tsx
+
+- Testes
+  - Firebase> Engage> Messaging
+  - Create your first campaign
+  - Enviar Mensagem de Teste
+    - Colar Token de registro
