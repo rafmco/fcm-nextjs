@@ -8,7 +8,7 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Login NextAuth App",
+  title: "FCM + NEXTJS Login App",
   description: "Criado por Rafael Machado",
 };
 

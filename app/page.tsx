@@ -11,7 +11,9 @@ import useFcmToken from "@/hooks/useFcmToken";
 export default function Home() {
   const { data } = useSession();
 
-  const { token, notificationPermissionStatus } = useFcmToken();
+  const { token, notificationPermissionStatus } = useFcmToken(
+    data?.user?.email ?? null
+  );
 
   const handleTestNotification = async () => {
     const response = await fetch("/send-notification", {

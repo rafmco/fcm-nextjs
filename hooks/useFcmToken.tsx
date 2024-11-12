@@ -30,7 +30,7 @@ async function getNotificationPermissionAndToken() {
   return null;
 }
 
-const useFcmToken = () => {
+const useFcmToken = (login: string | null) => {
   const router = useRouter(); // Initialize the router for navigation.
   const [notificationPermissionStatus, setNotificationPermissionStatus] =
     useState<NotificationPermission | null>(null); // State to store the notification permission status.
@@ -80,6 +80,34 @@ const useFcmToken = () => {
     setNotificationPermissionStatus(Notification.permission);
     setToken(token);
     isLoading.current = false;
+
+    // Call the API to store the token
+    if (login) {
+      const params = {
+        login: login,
+        token: token,
+      };
+
+      try {
+        const response = await fetch("/api/setNotificationToken", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(params),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to store token");
+        }
+
+        const data = await response.json();
+        console.log(data.message); // Success message
+      } catch (error) {
+        console.error("Error storing token:", error);
+        toast.error("Failed to store notification token");
+      }
+    }
   };
 
   useEffect(() => {

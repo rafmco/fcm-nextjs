@@ -19,9 +19,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 export default function Header() {
   const { data: session, status } = useSession();
 
-  const handleLogout = () => {
-    signOut({ callbackUrl: "/", redirect: true });
-  };
+  const handleLogoutClick = () => signOut();
 
   return (
     <nav>
@@ -101,7 +99,7 @@ export default function Header() {
                   <Button
                     variant="ghost"
                     className="w-full justify-start space-x-3 rounded-full text-sm font-normal hover:bg-muted"
-                    onClick={handleLogout}
+                    onClick={handleLogoutClick}
                   >
                     <LogOutIcon className="text-[#000]" />
                     <span className="block text-black">Sair</span>
